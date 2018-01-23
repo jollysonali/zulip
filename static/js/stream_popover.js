@@ -84,6 +84,8 @@ function build_stream_popover(e) {
     exports.show_streamlist_sidebar();
 
     var stream_id = $(elt).parents('li').attr('data-stream-id');
+    var stream_description = $(elt).parents('li').attr('data-stream-description');
+    var stream_color = $(elt).parents('li').attr('data-stream-color');
 
     var content = templates.render(
         'stream_sidebar_actions',
@@ -92,12 +94,17 @@ function build_stream_popover(e) {
 
     $(elt).popover({
         content: content,
+        title: stream_description,
         trigger: "manual",
         fixed: true,
     });
 
     $(elt).popover("show");
     var popover = $('.streams_popover[data-stream-id=' + stream_id + ']');
+    var title = popover.parents('.popover-inner').children('.popover-title')
+    console.log(stream_color);
+    title.css('background', stream_color)
+
 
     update_spectrum(popover, function (colorpicker) {
         colorpicker.spectrum(stream_color.sidebar_popover_colorpicker_options);

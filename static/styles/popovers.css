@@ -1,5 +1,6 @@
 .popover {
     width: auto;
+    max-width: 350px;
 }
 
 .popover-content {
@@ -7,7 +8,9 @@
 }
 
 .popover-title {
-    overflow-x: hidden;
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
 
